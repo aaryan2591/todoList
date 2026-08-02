@@ -1,0 +1,142 @@
+@font-face {
+    font-family: "cursive";
+    src: url(./fonts/Mea_Culpa/MeaCulpa-Regular.ttf);
+}
+
+body,div,p,button,header,h3,h2{
+    gap:0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+.homeDiv,
+.menuDiv,
+.aboutDiv{
+    background-color: #0d0d0d;
+    color: #f0e9d8;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 48px;
+}
+
+.greeting{
+    font-family: "cursive",sans-serif;
+    font-size: 32px;
+}
+.name{
+    font-size: 48px;
+    font-family: "cursive",sans-serif;
+   
+}
+
+.about{
+    border-top: 1px solid #c9a24b;
+    
+    font-size: 32px;
+    font-family: "cursive",sans-serif;
+}
+
+.bgImage{
+    width: 800px;
+    height: 500px;
+    border-radius: 8px;
+}
+
+header{
+    padding: 8px;
+    background-color: #c9a24b;
+}
+
+nav{
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+}
+
+nav button{
+    background-color: transparent;
+    color: #1a1a1a;
+    letter-spacing: 1px;
+    font-size: 24px;
+    padding: 8px 20px;
+    border: 1px solid #1a1a1a;
+    border-radius: 2px;
+    font-weight: 600;
+}
+
+nav button:hover {
+  background: rgba(26,26,26,0.1);
+  cursor: pointer;
+}
+
+nav button.active{
+     background: #1a1a1a;
+  color: #c9a24b;
+  border-color: #c9a24b;
+}
+
+.aboutDiv>div{
+    padding: 16px;
+}
+
+.aboutHeader{
+    font-size: 32px;
+    font-family: "cursive",sans-serif;
+}
+
+.description{
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 32px;
+    border-bottom: 1px solid #c9a24b;
+}
+
+.hours h3,
+.contact h3,
+.menuDiv h2{
+    color: #c9a24b;
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+span{
+    font-family: "cursive",sans-serif;
+}
+
+.hours,
+.contact{
+    font-size: 24px;
+    border-bottom: 1px solid #c9a24b;
+    width: 700px;
+}
+
+.menuDiv>div{
+    width: 900px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #c9a24b;
+    padding-bottom: 16px;
+}
+
+
+.menuDiv>div h2{
+    grid-area: 1/1/2/3;
+    text-align: center;
+}
+
+.menuDiv p{
+    font-size: 24px;
+}
+
+.menuDiv>div>div:last-child{
+    text-align: right;
+}
