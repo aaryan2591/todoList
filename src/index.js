@@ -1,34 +1,40 @@
-import { home } from "./modules/home.js";
-import { menu } from "./modules/menu.js";
-import { about } from "./modules/about.js";
+import { newTodo } from "./modules/apply.js";
+import { createDefaultProjects, newProject } from "./modules/projects.js";
+import { createLayout, display, projectList } from "./modules/DOM.js";
+import { saveProjects, loadProjects } from "./modules/storage.js";
 import "./styles.css";
 
-const content = document.getElementById("content");
-const homeButton = document.getElementById("home");
-const menuButton = document.getElementById("menu");
-const aboutButton = document.getElementById("about");
+const projects = loadProjects() ?? createDefaultProjects();
+let activeProjectId = projects[0].id;
 
-function setActive(clickedButton){
-    homeButton.classList.remove('active');
-    menuButton.classList.remove('active');
-    aboutButton.classList.remove('active');
-    clickedButton.classList.add('active');
+const root = document.querySelector("#app");
+const { addTaskBtn, addProjectBtn, sidebar, container } = createLayout(root);
+
+function refresh() {
+    const activeProject = projects.find(p => p.id === activeProjectId);
+    projectList(projects, activeProjectId, sidebar, (id) => {
+        activeProjectId = id;
+        refresh();
+    });
+    display(activeProject, container,refresh);
+    saveProjects(projects);
 }
 
-homeButton.addEventListener('click',()=>{
-    content.textContent = "";  
-    home();
-    setActive(homeButton);
-})
+addTaskBtn.addEventListener("click", () => {
+    newTodo((task) => {
+        const project = projects.find(p => p.id === activeProjectId);
+        project.todos.push(task);
+        refresh();
+    });
+});
 
-menuButton.addEventListener('click',()=>{
-    content.textContent = "";
-    menu();
-    setActive(menuButton);
-})
+addProjectBtn.addEventListener("click", () => {
+    newProject((project) => {
+        projects.push(project);
+        activeProjectId = project.id;
+        refresh();
+    });
+});
 
-aboutButton.addEventListener('click',()=>{
-    content.textContent = "";
-    about();
-    setActive(aboutButton);
-})
+refresh();
+

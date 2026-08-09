@@ -1,142 +1,195 @@
-@font-face {
-    font-family: "cursive";
-    src: url(./fonts/Mea_Culpa/MeaCulpa-Regular.ttf);
+* {
+    box-sizing: border-box;
 }
 
-body,div,p,button,header,h3,h2{
-    gap:0;
-    padding: 0;
+body {
     margin: 0;
-    border: 0;
-}
-
-.homeDiv,
-.menuDiv,
-.aboutDiv{
-    background-color: #0d0d0d;
-    color: #f0e9d8;
-    padding: 32px;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 48px;
-}
-
-.greeting{
-    font-family: "cursive",sans-serif;
-    font-size: 32px;
-}
-.name{
-    font-size: 48px;
-    font-family: "cursive",sans-serif;
-   
-}
-
-.about{
-    border-top: 1px solid #c9a24b;
-    
-    font-size: 32px;
-    font-family: "cursive",sans-serif;
-}
-
-.bgImage{
-    width: 800px;
-    height: 500px;
-    border-radius: 8px;
-}
-
-header{
-    padding: 8px;
-    background-color: #c9a24b;
-}
-
-nav{
-    display: flex;
-    justify-content: center;
-    gap: 48px;
-}
-
-nav button{
-    background-color: transparent;
+    font-family: system-ui, -apple-system, sans-serif;
+    background: #f5f6f8;
     color: #1a1a1a;
-    letter-spacing: 1px;
-    font-size: 24px;
-    padding: 8px 20px;
-    border: 1px solid #1a1a1a;
-    border-radius: 2px;
+}
+
+#app {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    min-height: 100vh;
+}
+
+#project-list {
+    background: #23272f;
+    color: #fff;
+    padding: 1.5rem 1rem;
+}
+
+#project-list div {
+    padding: 0.6rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 0.3rem;
+    transition: background 0.15s;
+}
+
+#project-list div:hover {
+    background: #333944;
+}
+
+#project-list div.active {
+    background: #4f7cff;
     font-weight: 600;
 }
 
-nav button:hover {
-  background: rgba(26,26,26,0.1);
-  cursor: pointer;
+#main-content {
+    display: flex;
+    flex-direction: column;
 }
 
-nav button.active{
-     background: #1a1a1a;
-  color: #c9a24b;
-  border-color: #c9a24b;
+#add-project-btn,
+#add-task-btn {
+    align-self: flex-start; 
+    margin: 1.5rem 1rem 0 1rem;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    background: #4f7cff;
+    color: #fff;
+    font-size: 0.9rem;
+    cursor: pointer;
 }
 
-.aboutDiv>div{
-    padding: 16px;
+#add-project-btn:hover,
+#add-task-btn:hover {
+    background: #3d68e0;
 }
 
-.aboutHeader{
-    font-size: 32px;
-    font-family: "cursive",sans-serif;
-}
-
-.description{
+#todo-list {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
     max-width: 700px;
-    margin: 0 auto;
-    font-size: 32px;
-    border-bottom: 1px solid #c9a24b;
 }
 
-.hours h3,
-.contact h3,
-.menuDiv h2{
-    color: #c9a24b;
-    font-size: 18px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+.todoCard {
+    background: #fff;
+    border-left: 5px solid #ccc;
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
 }
 
-span{
-    font-family: "cursive",sans-serif;
+.todoCard[data-priority="low"] {
+    border-left-color: #4caf50;
+}
+.todoCard[data-priority="medium"] {
+    border-left-color: #ff9800;
+}
+.todoCard[data-priority="high"] {
+    border-left-color: #e53935;
 }
 
-.hours,
-.contact{
-    font-size: 24px;
-    border-bottom: 1px solid #c9a24b;
-    width: 700px;
+.todoCard h3 {
+    margin: 0 0 0.3rem 0;
+    font-size: 1.05rem;
 }
 
-.menuDiv>div{
-    width: 900px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 1px solid #c9a24b;
-    padding-bottom: 16px;
+.todoCard p {
+    margin: 0.15rem 0;
+    font-size: 0.85rem;
+    color: #555;
 }
 
-
-.menuDiv>div h2{
-    grid-area: 1/1/2/3;
-    text-align: center;
+.todoCard.completed {
+    opacity: 0.55;
 }
 
-.menuDiv p{
-    font-size: 24px;
+.todoCard.completed h3 {
+    text-decoration: line-through;
 }
 
-.menuDiv>div>div:last-child{
-    text-align: right;
+.todoCard input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-top: 0.2rem;
+    cursor: pointer;
+}
+
+.todoCard button:first-of-type{
+    margin-left: auto;
+}
+
+.todoCard button {
+    border: none;
+    background: #eee;
+    padding: 0.4rem 0.8rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.todoCard button:hover {
+    background: #ddd;
+}
+
+dialog {
+    border: none;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    width: min(90vw, 400px);
+}
+
+dialog::backdrop {
+    background: rgba(0,0,0,0.4);
+}
+
+dialog form header {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+dialog form div {
+    margin-bottom: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+dialog form label {
+    font-size: 0.85rem;
+    color: #444;
+}
+
+dialog form input,
+dialog form select {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+dialog form div:last-child {
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 0.6rem;
+}
+
+dialog button[type="submit"] {
+    background: #4f7cff;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+dialog button[type="button"] {
+    background: #eee;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
 }
