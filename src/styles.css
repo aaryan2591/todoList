@@ -1,195 +1,198 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    font-family: system-ui, -apple-system, sans-serif;
-    background: #f5f6f8;
-    color: #1a1a1a;
+  margin: 0;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  background: #f5f6f8;
+  color: #1a1a1a;
 }
 
 #app {
-    display: grid;
-    grid-template-columns: 220px 1fr;
-    min-height: 100vh;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  min-height: 100vh;
 }
 
 #project-list {
-    background: #23272f;
-    color: #fff;
-    padding: 1.5rem 1rem;
+  background: #23272f;
+  color: #fff;
+  padding: 1.5rem 1rem;
 }
 
 #project-list div {
-    padding: 0.6rem 0.8rem;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-bottom: 0.3rem;
-    transition: background 0.15s;
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 0.3rem;
+  transition: background 0.15s;
 }
 
 #project-list div:hover {
-    background: #333944;
+  background: #333944;
 }
 
 #project-list div.active {
-    background: #4f7cff;
-    font-weight: 600;
+  background: #4f7cff;
+  font-weight: 600;
 }
 
 #main-content {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 #add-project-btn,
 #add-task-btn {
-    align-self: flex-start; 
-    margin: 1.5rem 1rem 0 1rem;
-    padding: 0.6rem 1.2rem;
-    border: none;
-    border-radius: 6px;
-    background: #4f7cff;
-    color: #fff;
-    font-size: 0.9rem;
-    cursor: pointer;
+  align-self: flex-start;
+  margin: 1.5rem 1rem 0 1rem;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  background: #4f7cff;
+  color: #fff;
+  font-size: 0.9rem;
+  cursor: pointer;
 }
 
 #add-project-btn:hover,
 #add-task-btn:hover {
-    background: #3d68e0;
+  background: #3d68e0;
 }
 
 #todo-list {
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    max-width: 700px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  max-width: 700px;
 }
 
 .todoCard {
-    background: #fff;
-    border-left: 5px solid #ccc;
-    border-radius: 8px;
-    padding: 1rem 1.2rem;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
+  background: #fff;
+  border-left: 5px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
 }
 
 .todoCard[data-priority="low"] {
-    border-left-color: #4caf50;
+  border-left-color: #4caf50;
 }
 .todoCard[data-priority="medium"] {
-    border-left-color: #ff9800;
+  border-left-color: #ff9800;
 }
 .todoCard[data-priority="high"] {
-    border-left-color: #e53935;
+  border-left-color: #e53935;
 }
 
 .todoCard h3 {
-    margin: 0 0 0.3rem 0;
-    font-size: 1.05rem;
+  margin: 0 0 0.3rem 0;
+  font-size: 1.05rem;
 }
 
 .todoCard p {
-    margin: 0.15rem 0;
-    font-size: 0.85rem;
-    color: #555;
+  margin: 0.15rem 0;
+  font-size: 0.85rem;
+  color: #555;
 }
 
 .todoCard.completed {
-    opacity: 0.55;
+  opacity: 0.55;
 }
 
 .todoCard.completed h3 {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
 
 .todoCard input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    margin-top: 0.2rem;
-    cursor: pointer;
+  width: 18px;
+  height: 18px;
+  margin-top: 0.2rem;
+  cursor: pointer;
 }
 
-.todoCard button:first-of-type{
-    margin-left: auto;
+.todoCard button:first-of-type {
+  margin-left: auto;
 }
 
 .todoCard button {
-    border: none;
-    background: #eee;
-    padding: 0.4rem 0.8rem;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.8rem;
+  border: none;
+  background: #eee;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.8rem;
 }
 
 .todoCard button:hover {
-    background: #ddd;
+  background: #ddd;
 }
 
 dialog {
-    border: none;
-    border-radius: 10px;
-    padding: 1.5rem;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-    width: min(90vw, 400px);
+  border: none;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  width: min(90vw, 400px);
 }
 
 dialog::backdrop {
-    background: rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.4);
 }
 
 dialog form header {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
 }
 
 dialog form div {
-    margin-bottom: 0.9rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
+  margin-bottom: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
 }
 
 dialog form label {
-    font-size: 0.85rem;
-    color: #444;
+  font-size: 0.85rem;
+  color: #444;
 }
 
 dialog form input,
 dialog form select {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 0.9rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.9rem;
 }
 
 dialog form div:last-child {
-    flex-direction: row;
-    justify-content: flex-end;
-    gap: 0.6rem;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 0.6rem;
 }
 
 dialog button[type="submit"] {
-    background: #4f7cff;
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1.2rem;
-    border-radius: 6px;
-    cursor: pointer;
+  background: #4f7cff;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
 dialog button[type="button"] {
-    background: #eee;
-    border: none;
-    padding: 0.5rem 1.2rem;
-    border-radius: 6px;
-    cursor: pointer;
+  background: #eee;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
 }

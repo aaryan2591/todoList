@@ -11,30 +11,29 @@ const root = document.querySelector("#app");
 const { addTaskBtn, addProjectBtn, sidebar, container } = createLayout(root);
 
 function refresh() {
-    const activeProject = projects.find(p => p.id === activeProjectId);
-    projectList(projects, activeProjectId, sidebar, (id) => {
-        activeProjectId = id;
-        refresh();
-    });
-    display(activeProject, container,refresh);
-    saveProjects(projects);
+  const activeProject = projects.find((p) => p.id === activeProjectId);
+  projectList(projects, activeProjectId, sidebar, (id) => {
+    activeProjectId = id;
+    refresh();
+  });
+  display(activeProject, container, refresh);
+  saveProjects(projects);
 }
 
 addTaskBtn.addEventListener("click", () => {
-    newTodo((task) => {
-        const project = projects.find(p => p.id === activeProjectId);
-        project.todos.push(task);
-        refresh();
-    });
+  newTodo((task) => {
+    const project = projects.find((p) => p.id === activeProjectId);
+    project.todos.push(task);
+    refresh();
+  });
 });
 
 addProjectBtn.addEventListener("click", () => {
-    newProject((project) => {
-        projects.push(project);
-        activeProjectId = project.id;
-        refresh();
-    });
+  newProject((project) => {
+    projects.push(project);
+    activeProjectId = project.id;
+    refresh();
+  });
 });
 
 refresh();
-

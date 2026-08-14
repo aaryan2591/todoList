@@ -7,7 +7,6 @@ modular JavaScript architecture and bundled with Webpack.
 
 <img width="800" alt="image" src="https://github.com/user-attachments/assets/9aa0b3fa-adae-402e-b864-48a985975672" />
 
-
 ## Features
 
 - Organize tasks into separate projects
@@ -40,5 +39,5 @@ npx webpack serve --config webpack.dev.js
 
 ## Part of
 
-Built as a project in [The Odin Project](https://www.theodinproject.com/) 
+Built as a project in [The Odin Project](https://www.theodinproject.com/)
 web development curriculum.
